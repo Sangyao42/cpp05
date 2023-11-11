@@ -6,18 +6,21 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 18:33:02 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/11 16:32:12 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/11 20:07:04 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
+# include "Form.hpp"
 # include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
 	public:
-		Bureaucrat(const std::string &name, const int &grade);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &copy);
 		~Bureaucrat();
 
@@ -36,6 +39,9 @@ class Bureaucrat
 			virtual const char *what() const throw();
 		};
 
+		//member function
+		void	signForm(Form &formToSign) const;
+
 	private:
 		const std::string	_name;
 		int					_grade;
@@ -44,6 +50,8 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &rhs);
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &rhs);
+std::ostream	&operator<<(std::ostream &os, const Bureaucrat &rhs);
+
+void			printForTest(std::string str);
 
 #endif

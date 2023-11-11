@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 18:34:11 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/11 16:33:03 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/11 20:37:06 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ Bureaucrat::Bureaucrat() : _grade(150)
 	printForTest("Bereaucrat default constructor is called.");
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : _name(name), _grade(grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	if (_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	printForTest("Bereaucrat " + _name + " default constructor is called.");
+	printForTest("Bereaucrat " + _name + " constructor is called.");
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name)
@@ -81,14 +81,36 @@ void	Bureaucrat::decrementGrade(int offset)
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.");
+	return ("Bureaucrat: Grade is too high.");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.");
+	return ("Bureaucrat: Grade is too low.");
 }
 
+//member function
+void	Bureaucrat::signForm(Form &formToSign) const
+{
+	if (formToSign.getIsSigned() == true)
+	{
+		std::cout << formToSign.getName() << " is already signed." << std::endl;
+	}
+	else
+	{
+		try
+		{
+			formToSign.beSigned(*this);
+			std::cout << this->_name << " signed " << formToSign.getName() <<std::endl;;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << this->_name << " couldn't sign " << formToSign.getName() << " because " << e.what() << std::endl;
+		}
+	}
+}
+
+//printer
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &rhs)
 {
 	os << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;

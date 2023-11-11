@@ -6,11 +6,12 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:08:31 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/11 16:33:38 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/11 20:34:05 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main(void)
@@ -27,12 +28,11 @@ int main(void)
 	// b3 = b1;
 	// std::cout << "copy assignment operator: " << b3;
 
-	Bureaucrat b4(b2);
-	std::cout << "copy constructor: " << b4;
+	Bureaucrat b5("Mona", 2);
 
 	try
 	{
-		Bureaucrat bToHigh("Tom", 0);
+		Form fToHigh("form to high", 0, 1);
 	}
 	catch(const std::exception& e)
 	{
@@ -40,41 +40,46 @@ int main(void)
 	}
 	try
 	{
-		Bureaucrat bToLow("Jerry", 151);
+		Form fToLow("form to low", 151, 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Form f1("Anmeldung", 10, 2);
+		std::cout << f1 << std::endl;
+		b1.signForm(f1);
+		std::cout << f1 << std::endl;
+		b2.signForm(f1);
+		std::cout << f1 << std::endl;
+		b5.signForm(f1);
+		std::cout << f1 << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		Form f2("Ummeldung", 10, 10);
+		std::cout << f2 << std::endl;
+		b2.signForm(f2);
+		std::cout << f2 << std::endl;
+		b5.signForm(f2);
+		std::cout << f2 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << std::endl;
 
-	try
-	{
-		b1.incrementGrade(10);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << b1 << std::endl;
-	try
-	{
-		b2.decrementGrade(10);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << b2 << std::endl;
 
-	try
-	{
-		b1.decrementGrade(1);
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	std::cout << b1;
+
+
+
+
 }
