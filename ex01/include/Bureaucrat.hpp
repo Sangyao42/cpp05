@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 18:33:02 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/10 20:15:22 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/11 16:32:12 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 class Bureaucrat
 {
 	public:
-		Bureaucrat();
 		Bureaucrat(const std::string &name, const int &grade);
 		Bureaucrat(const Bureaucrat &copy);
-		Bureaucrat &operator=(const Bureaucrat &rhs);
 		~Bureaucrat();
 
 		std::string	getName() const;
@@ -41,6 +39,9 @@ class Bureaucrat
 	private:
 		const std::string	_name;
 		int					_grade;
+
+		Bureaucrat();
+		Bureaucrat &operator=(const Bureaucrat &rhs);
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &rhs);
