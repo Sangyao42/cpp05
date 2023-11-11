@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 18:34:11 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/10 20:47:24 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/11 16:17:25 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	printForTest(std::string str)
 	#endif
 }
 
-Bureaucrat::Bureaucrat() : _name(""), _grade(150)
+Bureaucrat::Bureaucrat() : _grade(150)
 {
 	printForTest("Bereaucrat default constructor is called.");
 }
@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade) : _name(name),
 	printForTest("Bereaucrat " + _name + " default constructor is called.");
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy)
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name)
 {
 	this->_grade = copy._grade;
 	printForTest("Bereaucrat copy constructor is called.");

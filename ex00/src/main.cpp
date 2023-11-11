@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:08:31 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/10 20:47:05 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/11 16:19:28 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 int main(void)
 {
-	Bureaucrat b0;
+	// Bureaucrat b0;
 	Bureaucrat b1("Tom", 1);
 	Bureaucrat b2("Jerry", 150);
 
-	std::cout << b0;
+	// std::cout << b0;
 	std::cout << b1;
 	std::cout << b2;
 
-	Bureaucrat b3;
-	b3 = b1;
-	std::cout << b3;
+	// Bureaucrat b3;
+	// b3 = b1;
+	// std::cout << "copy assignment operator: " << b3;
 
 	Bureaucrat b4(b2);
-	std::cout << b4;
+	std::cout << "copy constructor: " << b4;
 
 	try
 	{
