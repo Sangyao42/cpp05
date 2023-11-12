@@ -39,12 +39,20 @@ class AForm
 		{
 			virtual const char *what() const throw();
 		};
+		class FormNotSignedException : public std::exception
+		{
+			virtual const char *what() const throw();
+		};
 
 		//member functions
 		void	beSigned(const Bureaucrat &buro);
 
 		//pure virtual functions
 		virtual void	execute(const Bureaucrat &executor) const = 0;
+
+	protected:
+		void	isExecutable(const Bureaucrat &executor) const;
+
 	private:
 		const std::string	_name;
 		bool				_isSigned;
@@ -53,7 +61,6 @@ class AForm
 
 		AForm();
 		AForm &operator=(const AForm &rhs);
-
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &rhs);

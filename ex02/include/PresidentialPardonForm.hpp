@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:28:15 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/11 22:51:12 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/12 12:32:47 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ class PresidentialPardonForm : public AForm
 		//funciton overload
 		virtual void	execute(const Bureaucrat &executor) const;
 	private:
+		std::string		_target;
+		
 		PresidentialPardonForm();
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &rhs);
 };

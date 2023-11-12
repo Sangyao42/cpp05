@@ -6,16 +6,16 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 18:33:02 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/11 20:07:04 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/12 13:33:28 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
-# include "Form.hpp"
+# include "AForm.hpp"
 # include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -40,7 +40,8 @@ class Bureaucrat
 		};
 
 		//member function
-		void	signForm(Form &formToSign) const;
+		void	signForm(AForm &formToSign) const;
+		void	executeForm(AForm const &form) const;
 
 	private:
 		const std::string	_name;
