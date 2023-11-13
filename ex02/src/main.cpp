@@ -6,12 +6,15 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:08:31 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/11 20:41:25 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/13 14:00:38 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 int main(void)
@@ -24,55 +27,28 @@ int main(void)
 	std::cout << b1;
 	std::cout << b2;
 
-	// Bureaucrat b3;
-	// b3 = b1;
-	// std::cout << "copy assignment operator: " << b3;
+	ShrubberyCreationForm f1("home");
+	RobotomyRequestForm f2("Marvin");
+	PresidentialPardonForm f3("one");
 
-	Bureaucrat b5("Mona", 2);
+	b1.executeForm(f1);
+	b2.signForm(f1);
+	b1.signForm(f1);
+	b2.executeForm(f1);
+	b1.executeForm(f1);
+	b1.executeForm(f1);
 
-	try
-	{
-		Form fToHigh("form to high", 0, 1);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Form fToLow("form to low", 151, 0);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Form f1("Anmeldung", 10, 2);
-		std::cout << f1 << std::endl;
-		b1.signForm(f1);
-		std::cout << f1 << std::endl;
-		b2.signForm(f1);
-		std::cout << f1 << std::endl;
-		b5.signForm(f1);
-		std::cout << f1 << std::endl;
+	std::cout << std::endl;
 
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	try
-	{
-		Form f2("Ummeldung", 10, 10);
-		std::cout << f2 << std::endl;
-		b2.signForm(f2);
-		std::cout << f2 << std::endl;
-		b5.signForm(f2);
-		std::cout << f2 << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	b1.signForm(f2);
+	b1.executeForm(f2);
+
+	std::cout << std::endl;
+
+	b2.signForm(f3);
+	b2.executeForm(f3);
+	b1.signForm(f3);
+	b1.executeForm(f3);
+
+	return (0);
 }

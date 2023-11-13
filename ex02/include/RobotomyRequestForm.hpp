@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:27:39 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/12 12:32:33 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/13 13:50:56 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 # include "AForm.hpp"
+# include <iostream>
 
 class RobotomyRequestForm : public AForm
 {
@@ -27,7 +28,7 @@ class RobotomyRequestForm : public AForm
 
 	private:
 		std::string		_target;
-		
+
 		RobotomyRequestForm();
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 };
