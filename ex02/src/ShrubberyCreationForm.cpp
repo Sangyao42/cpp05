@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ShrubberyCreationForm.cpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:29:29 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/12 13:32:31 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/14 17:08:02 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	if (!ofs)
 		std::cerr << "Error: " << this->_target << "_shrubbery: " << strerror(errno) << std::endl;
 	else
+	{
 		ofs << tree;
-	ofs.close();
+		ofs.close();
+		if (!ofs)
+			std::cerr << "Error: " << this->_target << "_shrubbery: " << strerror(errno) << std::endl;
+	}
 }
