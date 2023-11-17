@@ -23,7 +23,7 @@ Intern::Intern()
 
 Intern::Intern(const Intern &copy)
 {
-	*this = copy;
+	(void)copy;
 	printForTest("Intern Copy Constructor called");
 }
 
