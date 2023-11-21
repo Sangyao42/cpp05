@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:24:34 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/13 14:58:50 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/21 15:50:19 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+
+std::string Intern::_formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
 Intern::Intern()
 {
@@ -46,9 +48,8 @@ AForm *Intern::makeForm(std::string formName, std::string target)
 {
 	AForm *form;
 	form = NULL;
-	std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	int i = 0;
-	while(i < 3 && formName != formNames[i])
+	while(i < 3 && formName != _formNames[i])
 		i++;
 	switch (i)
 	{

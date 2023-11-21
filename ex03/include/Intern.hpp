@@ -6,7 +6,7 @@
 /*   By: sawang <sawang@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:21:56 by sawang            #+#    #+#             */
-/*   Updated: 2023/11/13 14:58:34 by sawang           ###   ########.fr       */
+/*   Updated: 2023/11/21 15:48:36 by sawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ class Intern
 			virtual const char *what() const throw();
 		};
 	private:
+		static std::string _formNames[3];
 };
 #endif
